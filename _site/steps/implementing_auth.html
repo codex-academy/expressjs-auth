@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Authentication & Authorization</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/steps/implementing_auth.html">
+
+  <script>
+  WebFontConfig = {
+    google: {
+      families: ['Source Sans Pro:400,700']
+    }
+  };
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js" async></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+  <nav class="site-nav">
+    <a href="/" class="logo"><img src="/img/codex-logo.png" alt="codeX"></a>
+    
+    <a href="#menu" class="menu">Menu &darr;</a>
+    
+
+    
+      
+      <h2>Authentication & Authorization</h2>
+      
+    
+  </nav>
+</header>
+
+
+    <main>
+      <h1 id="implementing-your-own-authentication">Implementing your own Authentication</h1>
+
+<p>Once your server supports HTTP Sessions and you understand the basics of Express middleware you can start thinking of how to implement some user Authentication &amp; Authorization.</p>
+
+<p>So let’s start simple. Create a simple Authentication system that:</p>
+
+<ul>
+  <li>Allows a user to login</li>
+  <li>Redirects a user back to the login screen with a message if their login attempt failed</li>
+  <li>Allows a user to login using the username ‘UserOne’ with a password of ‘thereWeG0’</li>
+  <li>Allows the user to logout</li>
+</ul>
+
+<p>Let’s extend that to a system that:</p>
+
+<ul>
+  <li>Allows a user to login</li>
+  <li>Redirects a user back to the login screen with a message if their login attempt failed</li>
+  <li>Allows a user to register - use an in memory store. If the server is restarted the credentials will be gone</li>
+</ul>
+
+<p>Now for a more advanced implementation.</p>
+
+<p>A system that:</p>
+
+<ul>
+  <li>Allows user to login</li>
+  <li>Redirects a user back to the login screen with a message if their login attempt failed</li>
+  <li>Allows a user to register:
+    <ul>
+      <li>Stores user details in a database table</li>
+      <li>Encrypts the user password. Tip: look at <a href="https://www.npmjs.com/package/bcrypt-nodejs">the bcrypt module</a> in npm.</li>
+    </ul>
+  </li>
+  <li>Locks the users account if they supply the wrong password 3 times in a row.</li>
+  <li>Allows a user to logout</li>
+</ul>
+
+<p>Once you have mastered the above you should have a good understanding of how the Authentication process works. How do you think you should handle the Authorization process?</p>
+
+    </main>
+
+    <footer class="site-footer">
+  <nav class="main-nav" id="menu">
+    <ul>
+          <li>
+            <a href="/steps/http_sessions.html" >Http Sessions</a>
+          </li>
+          <li>
+              <a href="/steps/middleware.html" >Middleware</a>
+          </li>
+          <li>
+            <a href="/steps/implementing_auth.html" class = "active">Implementing auth</a>
+          </li>
+
+    </ul>
+  </nav>
+</footer>
+
+
+  </body>
+
+</html>
