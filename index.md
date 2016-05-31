@@ -10,7 +10,7 @@ Web applications needs a way of knowing which users are logged into the system a
 
 Functionality in a system is normally assigned to roles, with roles being assigned to users.
 
-A user is identified as they log into the system. Once a identified, the system knows which roles are assigned to the user. The system use these roles to determine what a user can do.
+A user is identified as they log into the system. Once a identified, the system knows which roles are assigned to the user. The system use these roles to decide what a user can do.
 
 
 ## Resources
