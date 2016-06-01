@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Authentication & Authorization</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="//static.projectcodex.co/css/main.css">
+  <link rel="canonical" href="/steps/middleware_route_specific.html">
+
+  <script>
+  WebFontConfig = {
+    google: {
+      families: ['Source Sans Pro:400,700']
+    }
+  };
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js" async></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+  <nav class="site-nav">
+    <a href="/" class="logo"><img src="/img/codex-logo.png" alt="codeX"></a>
+    
+    <a href="#menu" class="menu">Menu &darr;</a>
+    
+
+    
+      
+      <h2>Authentication & Authorization</h2>
+      
+    
+  </nav>
+</header>
+
+
+    <main>
+      <h1 id="route-specific-middleware">Route specific middleware</h1>
+
+<p>Route specific middleware allows you to add middleware components onto routes.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">checkUser</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">){</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">){</span>
+      <span class="c1">// calling the next function - just proceeds to the route.</span>
+      <span class="k">return</span> <span class="nx">next</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="c1">// the user is not logged in redirect them to the login page</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">'login'</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/users'</span><span class="p">,</span> <span class="nx">checkUser</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">userData</span> <span class="o">=</span> <span class="nx">userService</span><span class="p">.</span><span class="nx">getUserData</span><span class="p">();</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'users'</span><span class="p">,</span> <span class="nx">userData</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+    </main>
+
+    <footer class="site-footer">
+  <nav class="main-nav" id="menu">
+    <ul>
+          <li>
+            <a href="/steps/http_sessions.html" >Http Sessions</a>
+          </li>
+          <li>
+              <a href="/steps/middleware.html" >Middleware</a>
+              <ul>
+                <li><a href="/steps/middleware_global.html" >Global middleware</a></li>
+                <li><a href="/steps/middleware_route_specific.html" class = "active">Route specific middleware</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/steps/implementing_auth.html" >Implementing auth</a>
+          </li>
+          <li>
+            <a href="/steps/resources.html" >Resources</a>
+          </li>
+
+    </ul>
+  </nav>
+</footer>
+
+
+  </body>
+
+</html>

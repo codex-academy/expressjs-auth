@@ -2,17 +2,31 @@
 layout: default
 ---
 
-# User role support
+# Middleware
 
-## Authentication & Authorization
+ExpressJS use provides middleware as a way to configure how it handles HTTP requests.
+
+You can use middleware for Authentication and Authorization in your application.
+
+## Authentication
+
+You can use middleware to do the following:
+
+* Check if the user is Authenticated;
+* if the user is not Authenticated, redirect the user to the `login` route;
+* check what roles are assigned to a user;
+* block access to routes a user's role don't have access to.
+
+The `login` route should:
+
+* Capture the user's credentials;
+* check if the user's credentials are valid;
+* store the appropriate information in the HTTP Session.
+
+## Authorization
 
 Web applications needs a way of knowing which users are logged into the system and what these users can do. Authentication is the process of getting to know a user. This normally involves a username and a password. Authorization is the process of checking what a user can do once they are Authenticated in the system.
 
 Functionality in a system is normally assigned to roles, with roles being assigned to users.
 
 A user is identified as they log into the system. Once a identified, the system knows which roles are assigned to the user. The system use these roles to determine what a user can do.
-
-
-## Resources
-
-Once you understand the Authentication basics you can look into some third party Authentication modules in npm. For example, [Passport JS](http://passportjs.org/docs) supports a wide array of Authentication methods including Google, Facebook, Github, etc.

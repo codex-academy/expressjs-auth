@@ -9,7 +9,7 @@
   <title>Authentication & Authorization</title>
   <meta name="description" content="">
 
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="//static.projectcodex.co/css/main.css">
   <link rel="canonical" href="/steps/http_sessions.html">
 
   <script>
@@ -44,11 +44,37 @@
     <main>
       <h1 id="http-sessions">HTTP Sessions</h1>
 
-<p>As HTTP is a stateless protocol by design, to store user session information one needs a way of managing state when using it. HTTP Sessions are used for that. An HTTP session uses a combination of Cookies for client side storage and Server Side storage.</p>
+<p>HTTP is a stateless protocol, to store user session information one needs a way of managing state when using it. HTTP Sessions are used for that.</p>
 
-<p>For security reasons one would like to store the minimum amount of data on the client. On the server side the session data can be stored either straight on disk or in a database of sorts. The Cookie normally contains an encrypted token that associates the HTTP session with the Session Data stored on the Server. An expiry time can be set on a HTTP Session to allow for a users login to expire if they are not actively using the application.</p>
+<p>HTTP sessions use a combination of client side and server side storage. It use <a href="https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/">Cookies</a> to store small pieces of information on a user’s PC. Server side the session data are stored in files on disk or in a database.</p>
 
-<p>To add HTTP Session support to your Express Server you need to install the <a href="https://www.npmjs.com/package/express-session">express-session package</a>.</p>
+<p>Cookies contains an token/values that are used associate the HTTP request data stored on the server. Cookies have an expiry time, this allows for HTTP Sessions to expire. The HTTP Session will expire after a predetermined time and a user will need to login again.</p>
+
+<h2 id="setup-a-session">Setup a session:</h2>
+
+<p>To add HTTP Sessions to your ExpressJS Server you need to install the <a href="https://www.npmjs.com/package/express-session">express-session package</a>.</p>
+
+<p>Add configuration like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">session</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express-session'</span><span class="p">);</span>
+
+<span class="c1">//setup HttpSession middleware</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">session</span><span class="p">({</span>
+    <span class="na">secret</span><span class="p">:</span> <span class="s1">'put your secret phrase here please'</span><span class="p">,</span>
+    <span class="na">cookie</span><span class="p">:</span> <span class="p">{</span> <span class="na">maxAge</span><span class="p">:</span> <span class="mi">60000</span> <span class="p">}</span>
+<span class="p">}));</span>
+
+<span class="c1">//in a route Now</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"/my-route"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+    <span class="c1">// req.session - will be defined now...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">){</span>
+        <span class="c1">//set a session value from a form variable</span>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
 
     </main>
 
@@ -60,9 +86,16 @@
           </li>
           <li>
               <a href="/steps/middleware.html" >Middleware</a>
+              <ul>
+                <li><a href="/steps/middleware_global.html" >Global middleware</a></li>
+                <li><a href="/steps/middleware_route_specific.html" >Route specific middleware</a></li>
+            </ul>
           </li>
           <li>
             <a href="/steps/implementing_auth.html" >Implementing auth</a>
+          </li>
+          <li>
+            <a href="/steps/resources.html" >Resources</a>
           </li>
 
     </ul>

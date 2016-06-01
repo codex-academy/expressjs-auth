@@ -4,8 +4,34 @@ layout: default
 
 # HTTP Sessions
 
-As HTTP is a stateless protocol by design, to store user session information one needs a way of managing state when using it. HTTP Sessions are used for that. An HTTP session uses a combination of Cookies for client side storage and Server Side storage.
+HTTP is a stateless protocol, to store user session information one needs a way of managing state when using it. HTTP Sessions are used for that.
 
-For security reasons one would like to store the minimum amount of data on the client. On the server side the session data can be stored either straight on disk or in a database of sorts. The Cookie normally contains an encrypted token that associates the HTTP session with the Session Data stored on the Server. An expiry time can be set on a HTTP Session to allow for a users login to expire if they are not actively using the application.
+HTTP sessions use a combination of client side and server side storage. It use [Cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) to store small pieces of information on a user's PC. Server side the session data are stored in files on disk or in a database.
 
-To add HTTP Session support to your Express Server you need to install the [express-session package](https://www.npmjs.com/package/express-session).
+Cookies contains an token/values that are used associate the HTTP request data stored on the server. Cookies have an expiry time, this allows for HTTP Sessions to expire. The HTTP Session will expire after a predetermined time and a user will need to login again.
+
+## Setup a session:
+
+To add HTTP Sessions to your ExpressJS Server you need to install the [express-session package](https://www.npmjs.com/package/express-session).
+
+Add configuration like this:
+
+```javascript
+
+var session = require('express-session');
+
+//setup HttpSession middleware
+app.use(session({
+    secret: 'put your secret phrase here please',
+    cookie: { maxAge: 60000 }
+}));
+
+//in a route Now
+app.get("/my-route", function(req, res){
+    // req.session - will be defined now...
+    if (!req.session.user){
+        //set a session value from a form variable
+        req.session.user = req.body.username;
+    }
+});
+```

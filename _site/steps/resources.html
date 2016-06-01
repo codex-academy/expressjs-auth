@@ -10,7 +10,7 @@
   <meta name="description" content="">
 
   <link rel="stylesheet" href="//static.projectcodex.co/css/main.css">
-  <link rel="canonical" href="/steps/middleware.html">
+  <link rel="canonical" href="/steps/resources.html">
 
   <script>
   WebFontConfig = {
@@ -42,27 +42,9 @@
 
 
     <main>
-      <h1 id="middleware">Middleware</h1>
+      <h1 id="resources">Resources</h1>
 
-<p>Express JS give us access to a concept called middleware where by we can extend the way that it handles HTTP requests from end users.</p>
-
-<p>We want the middleware to do the following:</p>
-
-<ul>
-  <li>Check if the user is Authenticated</li>
-  <li>If the user is not Authenticated, redirect the user to the login route</li>
-</ul>
-
-<p>The login routes should:</p>
-
-<ul>
-  <li>Capture the user’s credentials;</li>
-  <li>check the user’s credentials;</li>
-  <li>store the appropriate information in the HTTP Session.</li>
-</ul>
-
-<p>To support login for the <code class="highlighter-rouge">/users</code> route above you would need to put a user Object in the session. For logout you will need to remove the user Object from the session using the <code class="highlighter-rouge">delete</code> statement.
-mid</p>
+<p>Once you understand the Authentication basics you can look into some third party Authentication modules in npm. For example, <a href="http://passportjs.org/docs">Passport JS</a> supports a wide array of Authentication methods including Google, Facebook, Github, etc.</p>
 
     </main>
 
@@ -73,7 +55,7 @@ mid</p>
             <a href="/steps/http_sessions.html" >Http Sessions</a>
           </li>
           <li>
-              <a href="/steps/middleware.html" class = "active">Middleware</a>
+              <a href="/steps/middleware.html" >Middleware</a>
               <ul>
                 <li><a href="/steps/middleware_global.html" >Global middleware</a></li>
                 <li><a href="/steps/middleware_route_specific.html" >Route specific middleware</a></li>
@@ -83,7 +65,7 @@ mid</p>
             <a href="/steps/implementing_auth.html" >Implementing auth</a>
           </li>
           <li>
-            <a href="/steps/resources.html" >Resources</a>
+            <a href="/steps/resources.html" class = "active">Resources</a>
           </li>
 
     </ul>

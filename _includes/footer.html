@@ -6,9 +6,16 @@
           </li>
           <li>
               <a href="{{ site.baseurl }}/steps/middleware.html" {% if page.url == "/steps/middleware.html" %}class = "active"{% endif %}>Middleware</a>
+              <ul>
+                <li><a href="{{ site.baseurl }}/steps/middleware_global.html" {% if page.url == "/steps/middleware_global.html" %}class = "active"{% endif %}>Global middleware</a></li>
+                <li><a href="{{ site.baseurl }}/steps/middleware_route_specific.html" {% if page.url == "/steps/middleware_route_specific.html" %}class = "active"{% endif %}>Route specific middleware</a></li>
+            </ul>
           </li>
           <li>
             <a href="{{ site.baseurl }}/steps/implementing_auth.html" {% if page.url == "/steps/implementing_auth.html" %}class = "active"{% endif %}>Implementing auth</a>
+          </li>
+          <li>
+            <a href="{{ site.baseurl }}/steps/resources.html" {% if page.url == "/steps/resources.html" %}class = "active"{% endif %}>Resources</a>
           </li>
 
     </ul>
