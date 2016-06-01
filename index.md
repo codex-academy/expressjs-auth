@@ -4,9 +4,9 @@ layout: default
 
 # Middleware
 
-ExpressJS use provides middleware as a way to configure how it handles HTTP requests.
+ExpressJS provides [middleware](http://expressjs.com/en/guide/using-middleware.html) to configure how it handles HTTP requests.
 
-You can use middleware for Authentication and Authorization in your application.
+You can use middleware for adding Authentication and Authorization to your application.
 
 ## Authentication
 
