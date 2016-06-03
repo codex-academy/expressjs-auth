@@ -27,7 +27,7 @@ app.use(function(req, res, next){
   console.log('in my middleware!');
 
   // the user is not going to the login screen
-  if (req.route != "/login"){
+  if (req.path != "/login"){
       //is the user not logged in?
       if (!req.session.username ){
           // redirects to the login screen
