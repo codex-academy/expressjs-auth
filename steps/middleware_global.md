@@ -16,7 +16,7 @@ app.use(function(req, res, next){
 });
 ```
 
-This middleware component will not do much it will only log a message to the console.
+This middleware component doesn't do much: it only logs a message to the console.
 
 ## Using middleware
 
@@ -44,10 +44,8 @@ app.use(function(req, res, next){
 
 To logout we need to remove the username from the HttpSession.
 
-Use code like this:
+In a `/logout` route, you can remove the username from the HttpSession using code like this:
 
 ```javascript
 delete req.session.username
 ```
-
-In a `/logout` route to remove the username from the HttpSession.
