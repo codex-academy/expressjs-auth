@@ -4,9 +4,9 @@ layout: default
 
 # Middleware
 
-ExpressJS provides [middleware](http://expressjs.com/en/guide/using-middleware.html) to configure how it handles HTTP requests.
+ExpressJS provides [middleware](http://expressjs.com/en/guide/using-middleware.html) to configure how it handles HTTP requests. You can use middleware to run code, to make changes to the request and the response objects, and more. We'll use it to add Authentication and Authorization to your application.
 
-You can use middleware for adding Authentication and Authorization to your application.
+Web applications need a way of knowing which users are logged into the system and what these users can do. **Authentication** is the process of getting to know a user; this normally involves a username and a password. **Authorization** is the process of checking what a user can do once they are Authenticated in the system.
 
 ## Authentication
 
@@ -25,8 +25,6 @@ The `login` route should:
 
 ## Authorization
 
-Web applications needs a way of knowing which users are logged into the system and what these users can do. Authentication is the process of getting to know a user. This normally involves a username and a password. Authorization is the process of checking what a user can do once they are Authenticated in the system.
+Functionality in a system is normally assigned to roles; roles are assigned to users.
 
-Functionality in a system is normally assigned to roles, with roles being assigned to users.
-
-A user is identified as they log into the system. Once a identified, the system knows which roles are assigned to the user. The system use these roles to determine what a user can do.
+A user is identified as they log into the system. Once they are identified, the system knows which roles are assigned to the user. The system uses these roles to determine what a user can do.
