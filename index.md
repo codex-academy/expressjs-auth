@@ -21,7 +21,7 @@ The `login` route should:
 
 * Capture the user's credentials;
 * check if the user's credentials are valid;
-* store the appropriate information in the HTTP Session.
+* store the right information in the HTTP Session.
 
 ## Authorization
 

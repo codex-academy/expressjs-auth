@@ -1,3 +1,3 @@
 # expressjs-auth
 
-Authentication and Authorization basics for ExpressJS
+Authentication and Authorization basics for Express
