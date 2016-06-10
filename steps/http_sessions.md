@@ -8,7 +8,7 @@ HTTP is a stateless protocol. To store user session information we need a way of
 
 HTTP sessions use a combination of client side and server side storage. It uses [cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/) to store small pieces of information on the client side. It stores the session data in files on disk or in a database on the server side.
 
-Cookies contain tokens/values that are can be associated with the HTTP request data stored on the server. Cookies have an expiry time. This allows for HTTP Sessions to expire: after a predetermined time a user will need to log in again.
+Cookies contain tokens/values that can be associated with the HTTP request data stored on the server. Cookies have an expiry time. This allows for HTTP Sessions to expire: after a predetermined time a user will need to log in again.
 
 ## Set up a session
 
