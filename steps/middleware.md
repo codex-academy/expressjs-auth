@@ -18,4 +18,3 @@ The login routes should:
 * store the appropriate information in the HTTP Session.
 
 To support login for the `/users` route above you would need to put a user Object in the session. For logout you will need to remove the user Object from the session using the `delete` statement.
-mid
