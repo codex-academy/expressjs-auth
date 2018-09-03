@@ -6,10 +6,11 @@ layout: default
 
 Once your server supports HTTP Sessions and you understand the basics of Express middleware you can start thinking of how to implement some user Authentication & Authorization.
 
-So let's start simple. Create a simple Authentication system that:
+Let's start by creating a simple Authentication system that:
 
-* allows a user to login;
-* redirects a user to the login screen with a message if their login attempt failed;
+* allows a user to login using a form;
+* create a `'/'` that a user can only see if they are logged in;
+* redirects a user to the login screen with a message if their login attempt failed (use flash messages) or they try to go the `'/'` screen without being logged in;
 * allows a user to login using the username `UserOne` with a password of `thereWeG0`;
 * allows the user to logout.
 
@@ -17,7 +18,7 @@ Let's extend that to a system that:
 
 * allows a user to login;
 * redirects a user back to the login screen with a message if their login attempt failed;
-* allows a user to register. Use an in memory store: if the server is restarted the credentials will be gone.
+* allows a user to register. Use an in object to store username and passwords. If the server is restarted the credentials will be gone.
 
 Now for a more advanced implementation. Let's extend the system again to one that:
 

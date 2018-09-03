@@ -13,11 +13,12 @@ var checkUser = function(req, res, next){
       return next();
   }
   // the user is not logged in redirect them to the login page
-  res.redirect('login');
+  res.redirect('/login');
 };
 
 app.get('/users', checkUser, function(req, res){
-  var userData = userService.getUserData();
-  res.render('users', userData)
+  // use the username in the session the find the user detail
+  var userData = userService.getUserData(req.session.user);
+  res.render('user', userData)
 });
 ```
