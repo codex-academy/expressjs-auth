@@ -27,16 +27,21 @@ app.use(session({
 
 //init the session in one route
 app.get("/login", function(req, res){
+    const currentUsername = req.query.username;
     // req.session will be defined now
-    if (req.params.username && !req.session.user){
+    if (currentUsername && !req.session.user){
         //set a session value from a form variable
-        req.session.user = req.params.username;
+        req.session.user = currentUsername;
     }
     res.redirect('/');
 });
 
 app.get('/', function(req, res){
-    res.send('Hello ' + req.session.username);
+    let greeting = "Hello";
+    if (req.session.username) {
+        greeting += (", " + req.session.username);
+    }
+    res.send(greeting);
 });
 ```
 
