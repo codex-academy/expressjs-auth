@@ -29,9 +29,9 @@ app.use(session({
 app.get("/login", function(req, res){
     const currentUsername = req.query.username;
     // req.session will be defined now
-    if (currentUsername && !req.session.user){
+    if (currentUsername && !req.session.username){
         //set a session value from a form variable
-        req.session.user = currentUsername;
+        req.session.username = currentUsername;
     }
     res.redirect('/');
 });
